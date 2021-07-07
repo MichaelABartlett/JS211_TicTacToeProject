@@ -101,29 +101,37 @@ const diagonalWin = () => {
 const checkForWin = () => {
   // Your code here call each of the check for types of wins
   if(horizontalWin() || verticalWin() || diagonalWin()) {
+    console.log("you win");
     return true;
   } else {
+    
     return false;
-    changeMarker()
+  
   }
 }
 
 const ticTacToe = (row, column) => {
   // Your code here to place a marker on the board
-  const addMarker = (id) => {
-    console.log(id)
-    let element = document.getElementById(id)
-    const row = parseInt(element.id.charAt(0))
-    const column = parseInt(element.id.charAt(2))
-    board[row][column] = playerTurn
-    document.getElementById(id).innerHTML = playerTurn;
-    // console.log(board)
-    // console.log(row)
-    // console.log(column)
-  }
+  addMarker(row,column);
   // then check for a win
   checkForWin();
+  changeMarker();
 }
+
+const addMarker = (row,column) => {
+  
+  // let element = document.getElementById(id)
+  // const row = parseInt(element.id.charAt(0))
+  // const column = parseInt(element.id.charAt(2))
+  board[row][column] = playerTurn
+  // document.getElementById(id).innerHTML = playerTurn;
+  // console.log(board)
+  // console.log(row)
+  // console.log(column)
+}
+
+
+
 
 const getPrompt = () => {
   printBoard();
